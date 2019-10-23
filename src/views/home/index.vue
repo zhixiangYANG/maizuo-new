@@ -1,7 +1,14 @@
 <template>
   <div class="index">
     <div class="content">
-      <router-view></router-view>
+      <transition
+        enter-active-class="animated fadeInUp"
+        leave-active-class="animated fadeOutUp"
+        mode="out-in"
+        appear
+      >
+        <router-view></router-view>
+      </transition>
     </div>
 
     <ul class="footerBar">
