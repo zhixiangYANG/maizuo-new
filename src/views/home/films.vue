@@ -7,6 +7,12 @@
       </van-swipe-item>
     </van-swipe>
 
+    <!-- 定位位置 -->
+    <div class="location">
+      <span>深圳</span>
+      <i class="iconfont icon-xialajiantou"></i>
+    </div>
+
     <!-- 切换按钮 -->
     <div class="tabs">
       <ul>
@@ -58,6 +64,7 @@ export default {
   },
 
   created () {
+    // 轮播图的数据
     axios.get('https://m.maizuo.com/gateway', {
       params: {
         type: 2,
@@ -71,7 +78,7 @@ export default {
       }
     })
       .then(Response => {
-        console.log(Response.data.data)
+        // console.log(Response.data.data)
         let result = Response.data.data
         this.imgList = result
       })
@@ -82,12 +89,6 @@ export default {
 <style lang="scss">
 @import './src/assets/common//mixins.scss';
 .films-page {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
   .slide {
     position: relative;
     height: 200px;
@@ -107,23 +108,47 @@ export default {
     }
   }
 
+  .location {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 18px;
+    left: 7px;
+    color: #fff;
+    z-index: 10;
+    font-size: 13px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+
+    span {
+      padding: 0 3px;
+    }
+  }
+
   .tabs {
     height: 50px;
-    @include border-bottom;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #fff;
 
     ul {
       height: 50px;
       display: flex;
       align-items: center;
+      @include border-bottom;
 
       li {
         flex: 1;
         text-align: center;
         font-size: 14px;
-      }
 
-      &.active {
-        color: #ff5f16;
+        &.active {
+          color: #ff5f16;
+        }
       }
     }
   }

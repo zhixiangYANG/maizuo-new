@@ -59,7 +59,7 @@
       color: #a7a9ad;
 
       .iconfont {
-        font-size: 23px;
+        font-size: 21px;
         padding: 8px 0 0 0;
       }
       span {
